@@ -1,60 +1,43 @@
-function weatherForecast(){
-    let input=document.getElementById("inp").value;
-    // let url="https://api.openweathermap.org/data/2.5/forecast?q="+input+"&appid=1eb020304c271ca87eb6279c2372f4f0";
-    // let weData=fetch("https://api.openweathermap.org/data/2.5/weather?q=hyderabad&appid=1eb020304c271ca87eb6279c2372f4f0");
-    let url="https://api.openweathermap.org/data/2.5/forecast?q="+input+"&appid=1eb020304c271ca87eb6279c2372f4f0";
-    let url1="https://api.openweathermap.org/data/2.5/weather?q="+input+"&appid=1eb020304c271ca87eb6279c2372f4f0";
-    let weData=fetch(url1);
-    weData.then((rwData)=>{
-        rwData.json().then((data)=>{
-            let {main:{temp,temp_min,temp_max}}=data;
-            document.getElementById("rs").innerHTML+="Minimum temperature: "+temp_min+"<br>"+"Maximum Temperature: "+temp_max+"<br>";
-        });
-    })
-    let wData=fetch(url);
-    wData.then((rwData)=>{
-        rwData.json().then((data)=>{
-            
-            
-            let weatherArr=data.list;
-            document.getElementById("rs").innerHTML+="Country Name: "+data.city.country+"<br>";
-            var we=[];
-            var dt=[];
-            for(var i=0;i<weatherArr.length;i+=8){
-                // console.log(weatherArr[i].main.temp);
-                
-                // document.getElementById("result").innerHTML+=weatherArr[i].main.temp+"<br>";
-                we.push(weatherArr[i].main.temp);
-                // console.log(weatherArr[i].dt_txt);
-                var t=weatherArr[i].dt_txt.substring(0,11);
-                dt.push(t);
-
-            }
-            // document.getElementById('rs').innerHTML+="Country Name: "+data.city.country+"<br>"+"Minimum Temperature: "++"<br>";
-            // for(var j=0;j<dt.length;i++)
-            // {
-            //    dt[j]=dt[j].split(" ");
-            // }
-            const ctx = document.getElementById('myChart');
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                  labels: dt,
-                  datasets: [{
-                    backgroundColor:yield,
-                    label: '# of Votes',
-                    data: we,
-                    borderWidth: 1
-                  }]
-                },
-                options: {
-                  scales: {
-                    y: {
-                      beginAtZero: true
-                    }
-                  }
-                }
-              });
-        });
-    })
+async function sample()
+{
+    console.log("Sample function");
+    // return "CVRCOE";
+    console.log('Sample function');
+    console.log('Sample function');
+    let result = await fetch("https://jsonplaceholder.typicode.com/users");
+    let data = await result.json();
+    console.log(data);
 }
+console.log("After sample");
+console.log(sample().then(res=()=>{console.log(res)}));
+
+// This is symbol
+
+let s1=Symbol("CVR");
+let s2=Symbol("CVR");
+console.log(s1==s2);
+
+let add=Symbol();
+let user={
+    name : "CVr",
+    age : 20,
+    [add]:"Hyderabad"
+}
+for(let i in user)
+console.log(i);
+// doesnt print symbol object
+
+let arr=[1,2,3,4,5]
+for(let i=0;i<arr.length;i++)
+{
+    console.log(arr[i]);
+}
+console.log(arr);
+
+let iter=arr[Symbol.iterator]()
+console.log(iter.next());
+console.log(iter.next());
+
+
+
+
