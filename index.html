@@ -4,10 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>firebase</title>
+    <title>Student Management</title>
+    <style>
+        td{
+            text-align: center;
+        }
+
+    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>HI I AM PRANAY</h1>
-    <script src="index.js"></script>
+    
+    <h1>Student Management</h1>
+    <label for="name">Name :</label>
+    <input type="text" id="name">
+    <br><br>
+    <label for="roll">Roll no :</label>
+    <input type="text" id="roll">
+    <br><br>
+    <label for="branch">Branch :</label>
+    <input type="text" id="branch">
+    <br><br>
+    <label for="dob">DOB :</label>
+    <input type="text" id="dob">
+    <br><br>
+    <button id="insert">insert</button>
+    <button id="update">update</button>
+    <button id="read">read</button>
+    <button id="delete">delete</button>
+
+    <br><br>
+    <!-- <div id="tabledata"></div> -->
+    <!-- <table id="tabledata" ></table> -->
+    <table id="tabledata" style="width:100%;"></table>
+
+    <!-- <script src="firebase_config.js"></script> -->
+    <script src="stud.js" type="module"></script>
 </body>
 </html>
